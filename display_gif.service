@@ -1,0 +1,14 @@
+[Unit]
+Description=Display a GIF
+After=default.target
+
+[Service]
+Type=simple
+Restart=always
+WorkingDirectory=/home/pi
+ExecStart=/bin/bash -c "export DISPLAY=:0 && ffplay -f gif -loop 0 combined_gif.gif"
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target
